@@ -7,7 +7,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	wint_t c;
-	size_t nl;
+	long nl;
 
 	nl = 0;
 	while ((c = getwchar()) != WEOF) {
@@ -16,6 +16,6 @@ int main() {
 		}
 	}
 
-	wprintf(L"%zu\n", nl);
+	wprintf(L"%ld\n", nl);
 	return 0;
 }

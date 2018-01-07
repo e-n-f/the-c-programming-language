@@ -9,7 +9,7 @@ int main() {
 
 	bool within_word = false;
 	wint_t c;
-	size_t nl, nw, nc;
+	long nl, nw, nc;
 
 	nl = nw = nc = 0;
 	while ((c = getwchar()) != WEOF) {
@@ -27,6 +27,6 @@ int main() {
 		}
 	}
 
-	wprintf(L"%zu %zu %zu\n", nl, nw, nc);
+	wprintf(L"%ld %ld %ld\n", nl, nw, nc);
 	return 0;
 }

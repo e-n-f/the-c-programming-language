@@ -9,9 +9,10 @@
 #define STEP 20		// step size
 
 int main() {
+	int fahr;
+
 	setlocale(LC_ALL, "");
 
-	int fahr;
 	for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP) {
 		wprintf(L"%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 	}

@@ -6,13 +6,15 @@
 // Count words
 
 int main() {
-	setlocale(LC_ALL, "");
-
-	bool within_word = false;
+	bool within_word;
 	wint_t c;
 	long nl, nw, nc;
 
+	setlocale(LC_ALL, "");
+
+	within_word = false;
 	nl = nw = nc = 0;
+
 	while ((c = getwchar()) != WEOF) {
 		nc++;
 

@@ -4,9 +4,10 @@
 int power(int base, size_t n);
 
 int main() {
+	size_t i;
+
 	setlocale(LC_ALL, "");
 
-	size_t i;
 	for (i = 0; i < 10; i++) {
 		wprintf(L"%zu %d %d\n", i, power(2, i), power(-3, i));
 	}

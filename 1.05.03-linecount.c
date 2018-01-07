@@ -4,10 +4,10 @@
 // Count lines
 
 int main() {
-	setlocale(LC_ALL, "");
-
 	wint_t c;
 	long nl;
+
+	setlocale(LC_ALL, "");
 
 	nl = 0;
 	while ((c = getwchar()) != WEOF) {

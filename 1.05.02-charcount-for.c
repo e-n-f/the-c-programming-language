@@ -4,11 +4,11 @@
 // Count characters
 
 int main() {
+	long long nc;
+
 	setlocale(LC_ALL, "");
 
-	long long nc;
 	nc = 0;
-
 	for (nc = 0; getwchar() != WEOF; nc++) {
 		;
 	}

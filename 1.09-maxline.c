@@ -8,12 +8,14 @@ size_t readline(wchar_t out[], size_t limit);
 void copy(wchar_t to[], wchar_t from[]);
 
 int main() {
-	setlocale(LC_ALL, "");
-
-	size_t max = 0;
+	size_t max;
 	wchar_t line[MAXLINE];
 	wchar_t longest[MAXLINE];
 	size_t len;
+
+	setlocale(LC_ALL, "");
+
+	max = 0;
 
 	while ((len = readline(line, MAXLINE)) > 0) {
 		if (len > max) {

@@ -4,9 +4,10 @@
 // Copy input to output
 
 int main() {
+	wint_t c;
+
 	setlocale(LC_ALL, "");
 
-	wint_t c;
 	while ((c = getwchar()) != WEOF) {
 		putwchar(c);
 	}

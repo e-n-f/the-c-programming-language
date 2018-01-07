@@ -5,10 +5,10 @@
 // for fahr = 0, 20, ..., 300
 
 int main() {
-	setlocale(LC_ALL, "");
-
 	int fahr, celsius;
 	int lower, upper, step;
+
+	setlocale(LC_ALL, "");
 
 	lower = 0;	// lower limit of temperature table
 	upper = 300;	// upper limit

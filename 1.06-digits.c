@@ -6,13 +6,13 @@
 // Count digits, whitespace, others
 
 int main() {
-	setlocale(LC_ALL, "");
-
 	wint_t c;
 	size_t i;
 
 	size_t nspace, nother;
 	size_t ndigit[10];
+
+	setlocale(LC_ALL, "");
 
 	nspace = nother = 0;
 	for (i = 0; i < 10; i++) {

@@ -123,6 +123,8 @@ Fortunately `size_t` is also OK for this case of counting down.
 The characters are wide as before. I call my function `readline` instead of `getline`
 to avoid conflict with the POSIX function.
 
+This introduces `wchar_t` as the type of characters in non-FILE contexts.
+
 K&R's loop conditional when reading lines seems needlessly complicated.
 I use a `done` boolean instead, since `break` has not been introduced yet.
 

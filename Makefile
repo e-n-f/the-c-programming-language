@@ -1,4 +1,4 @@
-all: 1.01-hello 1.02-fahr-float 1.02-fahr 1.03-for 1.04-define 1.05-characters-assign 1.05-characters 1.05.02-charcount-for 1.05.02-charcount 1.05.03-linecount 1.05.04-wordcount-ctype 1.05.04-wordcount 1.06-digits 1.07-power 1.08-power2 1.09-maxline
+all: 1.01-hello 1.02-fahr-float 1.02-fahr 1.03-for 1.04-define 1.05-characters-assign 1.05-characters 1.05.02-charcount-for 1.05.02-charcount 1.05.03-linecount 1.05.04-wordcount-ctype 1.05.04-wordcount 1.06-digits 1.07-power 1.08-power2 1.09-maxline 3.07-trim
 
 1.01-hello: 1.01-hello.c
 	cc -g -Wall -Wconversion -O3 -std=c11 -o 1.01-hello 1.01-hello.c
@@ -47,4 +47,7 @@ all: 1.01-hello 1.02-fahr-float 1.02-fahr 1.03-for 1.04-define 1.05-characters-a
 
 1.09-maxline: 1.09-maxline.c
 	cc -g -Wall -Wconversion -O3 -std=c11 -o 1.09-maxline 1.09-maxline.c
+
+3.07-trim: 3.07-trim.c
+	cc -g -Wall -Wconversion -O3 -std=c11 -o 3.07-trim 3.07-trim.c
 

@@ -137,3 +137,28 @@ to introduce `extern` before separate compilation.
 
 I should have some other example where a global variable is appropriate, but
 this is not it.
+
+## Infodump
+
+Chapter 2 is basically a giant infodump of how types and constants
+and strings and enumerations and arithmetic and comparisons and type conversions work.
+
+Section 2.7 introduces `ctype` in the context of showing that `tolower` can't be
+implemented easily in EBCDIC, which a Unicode example would now demonstrate as well.
+
+Increment and decrement, bitwise operationd, assignments, conditional expressions,
+and operator precedence are all basically still true.
+
+## Infodump and trim
+
+Chapter 3 is another infodump. Statements, `if`, `else`, `switch`, `while`, `for`
+are clarified.
+
+There is new material for `do`, `break`, `continue`, and `goto`.
+
+The `trim` example for `break` is contrived but is also a good example of how
+counting down with `size_t` in the obvious way doesn't work. It doesn't say
+what the return value is intended to mean, but if it's meant to be the trimmed
+length of the string, it's off by one.
+
+* [3.07-trim.c](3.07-trim.c)

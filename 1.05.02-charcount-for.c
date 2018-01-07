@@ -6,13 +6,13 @@
 int main() {
 	setlocale(LC_ALL, "");
 
-	size_t nc;
+	long long nc;
 	nc = 0;
 
 	for (nc = 0; getwchar() != WEOF; nc++) {
 		;
 	}
 
-	wprintf(L"%zu\n", nc);
+	wprintf(L"%lld\n", nc);
 	return 0;
 }

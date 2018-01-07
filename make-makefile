@@ -1,0 +1,18 @@
+#!/bin/sh
+
+/bin/echo -n "all:"
+for i in *.c
+do
+	/bin/echo -n " $(basename $i .c)"
+done
+
+echo ""
+echo ""
+
+for i in *.c
+do
+	echo "$(basename $i .c): $i"
+	echo "	cc -g -Wall -Wconversion -O3 -std=c11 -o $(basename $i .c) $i"
+	echo ""
+done
+

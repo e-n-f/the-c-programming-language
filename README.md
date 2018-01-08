@@ -255,4 +255,13 @@ The thing that felt important to change was to make the `sort`
 bounds be the first element and one past the last element, rather
 than the first and directly the last.
 
+The substantive change is that in K&R, the allocator and the text
+both work in terms of bytes. I have a byte-oriented allocator
+with a generic `void *` interface and text in wide characters,
+and have to use `sizeof` when allocating.
+
 * [5.06-sort.c](5.06-sort.c)
+
+Should it keep a separate list of what was allocated, in order,
+so that it can free the memory at the end? It is probably not great
+to start off encouraging memory leaks.

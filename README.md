@@ -170,3 +170,89 @@ having to do addition during the loop. I also changed my `readline` again, elimi
 the boolean variable, since `break` has been introduced.
 
 * [4.01-fgrep.c](4.01-fgrep.c)
+
+## String to floating point.
+
+K&R reveal that all the functions so far have been `void` or have returned integers.
+To a contemporary reader it would be more surprising *not* to be able to return
+any arbitrary type.
+
+The other part that seems bizarre now is the forward declaration of `atof` inside
+the body of the calling function.
+
+## External variables, in the context of maintaining a stack
+
+This seems like a more reasonable place to talk about `extern`, although there's
+no reason the stack couldn't be an argument instead of a global. But here K&R
+*don't* talk about `extern`, but just use globals by their regular declaration.
+
+## Header files
+
+Here would be a reasonable place to talk about some example of an `extern` global,
+but they don't; they only talk about `#define` and functions in the header file.
+
+(Therefore talk about making your own header files here instead of in §4.11 below.)
+
+## Static variables
+
+At this point they should probably start declaring all functions that are not
+general utility functions to be `static`.
+
+And they really should have an example of a static variable inside a function!
+
+This should also mention `inline` functions.
+
+## Register variables
+
+Nobody cares about this any more.
+
+## Block structure
+
+Extend this to also talk about declaring variables in the middle of a block.
+
+## Initialization
+
+And also talk about doing declarations with initialization in the
+conditional of a loop.
+
+## Recursion
+
+Basically fine except for the anachronistic declaration of `swap` inside the body
+of `qsort`.
+
+The weird part of `qsort` is that the indices are of the first and last element
+to be sorted instead of one past the end. Addressed below in the full `sort` program.
+
+## Preprocessor
+
+Refocus the function-like macros on things you can't do with an `inline` function.
+
+## Pointers
+
+Seems basically fine.
+
+Unclear whether the `alloc` part should be emphasizing that generic memory allocation
+is from `char`s, or talking about allocating memory of a particular type.
+I'm going to treat it as generic in `sort` below.
+
+Using `0` as a pointer value instead of `NULL` reads as weird now. Also weird that
+`afree` silently does nothing with an invalid pointer, but there hasn't been anything
+yet about writing to the standard error.
+
+The part on `strlen` shouldn't be so dismissive of `size_t`.
+
+## Pointers into strings
+
+I would not encourage post-incrementing in the loop conditional or leaving the
+`!= L'\0'` as implicit.
+
+## Arrays of pointers
+
+Finally another full example program, combining the memory allocator, sorting,
+and line-oriented I/O.
+
+The thing that felt important to change was to make the `sort`
+bounds be the first element and one past the last element, rather
+than the first and directly the last.
+
+* [5.06-sort.c](5.06-sort.c)

@@ -162,3 +162,11 @@ what the return value is intended to mean, but if it's meant to be the trimmed
 length of the string, it's off by one.
 
 * [3.07-trim.c](3.07-trim.c)
+
+## String matching
+
+K&R make their `strstr` hard to read by introducing another variable just to avoid
+having to do addition during the loop. I also changed my `readline` again, eliminating
+the boolean variable, since `break` has been introduced.
+
+* [4.01-fgrep.c](4.01-fgrep.c)

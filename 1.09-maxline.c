@@ -34,7 +34,7 @@ int main() {
 size_t readline(wchar_t out[], size_t limit) {
 	size_t i;
 	bool done;
-	wchar_t c;
+	wint_t c;
 
 	i = 0;
 	done = false;

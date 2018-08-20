@@ -265,3 +265,51 @@ and have to use `sizeof` when allocating.
 Should it keep a separate list of what was allocated, in order,
 so that it can free the memory at the end? It is probably not great
 to start off encouraging memory leaks.
+
+## Multi-dimensional arrays (5.7)
+
+It seems anachronistic now to use `char` as the type for the table
+of month lengths. For a microoptimization like this it would be
+more expected to write `int8_t` now.
+
+I don't know how I feel about the dummy array element for month 0.
+
+Using parentheses in the boolean expressions would be more readable
+than putting the `%` operator directly against its operands, especially
+since it gives the impression that the lack of a space affects
+operator precedence.
+
+The `month_day` function can overrun the end of the array if you
+pass in too large a julian day; I would add a check for that,
+so you get December 250th or whatever instead of crashing.
+K&R have this as an exercise.
+
+## Initialization of pointer arrays (5.8)
+
+The pointers to string constants should be `const wchar_t *`.
+
+## Pointers vs. Multi-dimensional arrays (5.9)
+
+Still seems fine aside from `const`.
+
+## Command-line arguments (5.10)
+
+This is going to finally require talking about narrow strings,
+since the command line arguments are narrow. Rather than talk
+about conversions yet, it is probably better to introduce
+narrow `printf` and `<stdio.h>` and stay in the narrow world.
+
+I write `i + 1 < argc` instead of `i < argc - 1` since I think
+it better communicates the idea of "is the next thing also
+part of the loop?"
+
+* [5.10-echo.c](5.10-echo.c)
+
+Do we really have to talk about incrementing and decrementing
+pointers? I guess we do, but I'm at least not going to do it
+inline within the `printf` arguments.
+
+* [5.10-echo2.c](5.10-echo2.c)
+
+I would also insist on writing `argc - 1 > 0` instead of
+`argc > 1` in the minor variation that alters the format string.

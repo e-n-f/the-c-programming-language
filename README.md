@@ -329,10 +329,14 @@ instead of staying in the narrow world, to get that out of the way:
 
 * [5.10-echo3.c](5.10-echo3.c)
 
+Doing the conversion also means I'm using a variable-length array,
+which isn't in K&R at all because it's too new.
+
 I'm also going to talk about `stderr` because it's wrong to
 send error messages to the standard output. We haven't introduced
 `exit` yet so the natural way of exiting if the arguments are wrong
 doesn't work yet, but it's in `main` so we can `return` it.
+(Or are K&R saving not-at-the-end `return` for later?)
 
 K&R have `main` return the number of matching lines, without mentioning
 that this is counter to the usual behavior of main's return value.
@@ -347,3 +351,14 @@ Since I am using `stderr` I think it's OK to say `stdin` too.
 ### Option arguments
 
 This really should be using `getopt`, but that's in POSIX, not in C.
+
+I'm processing the options with integer loops instead of pointer
+arithmetic, because really there is no need to be doing
+pointer arithmetic. K&R use this to demonstrate operator
+precedence around pointers, so maybe I need some other
+example for that.
+
+I'm also doing it in narrow chars to avoid doing another conversion,
+which is perhaps a bad precedent.
+
+* [5.10-options.c](5.10-options.c)

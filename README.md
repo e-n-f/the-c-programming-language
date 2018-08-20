@@ -338,6 +338,10 @@ K&R have `main` return the number of matching lines, without mentioning
 that this is counter to the usual behavior of main's return value.
 I return the expected !boolean instead.
 
+I'm also just going to use `fgetws` instead of `readline` because it's
+stupid to duplicate a standard library function for no reason.
+Since I am using `stderr` I think it's OK to say `stdin` too.
+
 * [5.10-find.c](5.10-find.c)
 
 ### Option arguments

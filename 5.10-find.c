@@ -7,8 +7,6 @@
 
 #define MAXLINE 1000
 
-size_t readline(wchar_t out[], size_t limit);
-
 int main(int argc, char **argv) {
 	setlocale(LC_ALL, "");
 
@@ -27,7 +25,7 @@ int main(int argc, char **argv) {
 	wchar_t line[MAXLINE];
 	bool found = false;
 
-	while (readline(line, MAXLINE) > 0) {
+	while (fgetws(line, MAXLINE, stdin) > 0) {
 		if (wcsstr(line, pattern) != NULL) {
 			wprintf(L"%ls", line);
 			found = true;
@@ -35,30 +33,4 @@ int main(int argc, char **argv) {
 	}
 
 	return !found;
-}
-
-
-// as before
-size_t readline(wchar_t out[], size_t limit) {
-	size_t i;
-	wint_t c;
-
-	i = 0;
-	while (i + 1 < limit) {
-		c = getwchar();
-
-		if (c == WEOF) {
-			break;
-		}
-
-		out[i] = c;
-		i++;
-
-		if (c == L'\n') {
-			break;
-		}
-	}
-
-	out[i] = L'\0';
-	return i;
 }

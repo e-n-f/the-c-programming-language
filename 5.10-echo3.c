@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 		if (i + 1 < argc) {
 			wprintf(L"%ls ", pattern);
 		} else {
-			wprintf(L"%ls ", pattern);
+			wprintf(L"%ls", pattern);
 		}
 	}
 

@@ -286,7 +286,7 @@ K&R have this as an exercise.
 
 ## Initialization of pointer arrays (5.8)
 
-The pointers to string constants should be `const wchar_t *`.
+The pointers to (wide) string constants should be `const wchar_t *`.
 
 ## Pointers vs. Multi-dimensional arrays (5.9)
 
@@ -303,6 +303,9 @@ I write `i + 1 < argc` instead of `i < argc - 1` since I think
 it better communicates the idea of "is the next thing also
 part of the loop?"
 
+It would probably be good to mention that `argc` should have
+been `size_t` but is `int` for historical reasons.
+
 * [5.10-echo.c](5.10-echo.c)
 
 Do we really have to talk about incrementing and decrementing
@@ -313,3 +316,19 @@ inline within the `printf` arguments.
 
 I would also insist on writing `argc - 1 > 0` instead of
 `argc > 1` in the minor variation that alters the format string.
+
+### Grepalike
+
+This is tricky because our `getline` is defined for wide characters
+but the command line arguments are narrow, so it is necessary to
+talk about conversions. It is especially ugly because the return
+type of `mbstowcs` is wrong in the standard.
+
+I'm also going to talk about `stderr` because it's wrong to
+send error messages to the standard output. We haven't introduced
+`exit` yet so the natural way of exiting if the arguments are wrong
+doesn't work yet, but it's in `main` so we can `return` it.
+
+K&R have `main` return the number of matching lines, without mentioning
+that this is counter to the usual behavior of main's return value.
+I return the expected !boolean instead.

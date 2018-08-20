@@ -324,6 +324,11 @@ but the command line arguments are narrow, so it is necessary to
 talk about conversions. It is especially ugly because the return
 type of `mbstowcs` is wrong in the standard.
 
+So I'm going to add a third echo that does the conversion,
+instead of staying in the narrow world, to get that out of the way:
+
+* [5.10-echo3.c](5.10-echo3.c)
+
 I'm also going to talk about `stderr` because it's wrong to
 send error messages to the standard output. We haven't introduced
 `exit` yet so the natural way of exiting if the arguments are wrong
@@ -332,3 +337,9 @@ doesn't work yet, but it's in `main` so we can `return` it.
 K&R have `main` return the number of matching lines, without mentioning
 that this is counter to the usual behavior of main's return value.
 I return the expected !boolean instead.
+
+* [5.10-find.c](5.10-find.c)
+
+### Option arguments
+
+This really should be using `getopt`, but that's in POSIX, not in C.

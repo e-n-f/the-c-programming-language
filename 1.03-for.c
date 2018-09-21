@@ -1,4 +1,4 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 // Print Fahrenheit-Celsius table
@@ -10,7 +10,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	for (fahr = 0; fahr <= 300; fahr = fahr + 20) {
-		wprintf(L"%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+		printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 	}
 
 	return 0;

@@ -1,8 +1,8 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 int main() {
 	setlocale(LC_ALL, "");
-	wprintf(L"hello, world\n");
+	printf("hello, world\n");
 	return 0;
 }

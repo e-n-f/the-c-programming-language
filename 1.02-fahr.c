@@ -1,4 +1,4 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 // Print Fahrenheit-Celsius table
@@ -17,7 +17,7 @@ int main() {
 	fahr = lower;
 	while (fahr <= upper) {
 		celsius = 5 * (fahr - 32) / 9;
-		wprintf(L"%d\t%d\n", fahr, celsius);
+		printf("%d\t%d\n", fahr, celsius);
 		fahr = fahr + step;
 	}
 

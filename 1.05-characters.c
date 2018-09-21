@@ -1,17 +1,17 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 // Copy input to output
 
 int main() {
-	wint_t c;
+	c32int_t c;
 
 	setlocale(LC_ALL, "");
 
-	c = getwchar();
+	c = getchar32();
 	while (c != WEOF) {
-		putwchar(c);
-		c = getchar();
+		putchar32(c);
+		c = getchar32();
 	}
 
 	return 0;

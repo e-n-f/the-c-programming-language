@@ -1,4 +1,4 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 int power(int base, size_t n);
@@ -9,7 +9,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	for (i = 0; i < 10; i++) {
-		wprintf(L"%zu %d %d\n", i, power(2, i), power(-3, i));
+		printf("%zu %d %d\n", i, power(2, i), power(-3, i));
 	}
 
 	return 0;

@@ -1,12 +1,12 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 #include <stdbool.h>
-#include <wctype.h>
+#include <uctype.h>
 
 // Count digits, whitespace, others
 
 int main() {
-	wint_t c;
+	c32int_t c;
 	size_t i;
 
 	size_t nspace, nother;
@@ -19,21 +19,21 @@ int main() {
 		ndigit[i] = 0;
 	}
 
-	while ((c = getwchar()) != EOF) {
+	while ((c = getchar32()) != EOF) {
 		if (c >= '0' && c <= '9') {
-			ndigit[c - '0']++;
-		} else if (iswspace(c)) {
+			ndigit[digitc32toint(c)]++;
+		} else if (isc32space(c)) {
 			nspace++;
 		} else {
 			nother++;
 		}
 	}
 
-	wprintf(L"digits =");
+	printf("digits =");
 	for (i = 0; i < 10; i++) {
-		wprintf(L" %zu", ndigit[i]);
+		printf(" %zu", ndigit[i]);
 	}
-	wprintf(L", white space = %zu, other = %zu\n", nspace, nother);
+	printf(", white space = %zu, other = %zu\n", nspace, nother);
 
 	return 0;
 }

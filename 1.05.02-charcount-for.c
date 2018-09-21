@@ -1,4 +1,4 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 // Count characters
@@ -9,10 +9,10 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	nc = 0;
-	for (nc = 0; getwchar() != WEOF; nc++) {
+	for (nc = 0; getchar32() != C32EOF; nc++) {
 		;
 	}
 
-	wprintf(L"%lld\n", nc);
+	printf("%lld\n", nc);
 	return 0;
 }

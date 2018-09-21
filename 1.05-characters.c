@@ -9,7 +9,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	c = getchar32();
-	while (c != WEOF) {
+	while (c != C32EOF) {
 		putchar32(c);
 		c = getchar32();
 	}

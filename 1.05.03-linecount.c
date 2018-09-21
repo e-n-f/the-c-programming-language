@@ -1,21 +1,21 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 
 // Count lines
 
 int main() {
-	wint_t c;
+	c32int_t c;
 	long nl;
 
 	setlocale(LC_ALL, "");
 
 	nl = 0;
-	while ((c = getwchar()) != WEOF) {
-		if (c == L'\n') {
+	while ((c = getchar32()) != WEOF) {
+		if (c == U'\n') {
 			nl++;
 		}
 	}
 
-	wprintf(L"%ld\n", nl);
+	printf("%ld\n", nl);
 	return 0;
 }

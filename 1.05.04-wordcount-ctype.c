@@ -1,13 +1,13 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 #include <stdbool.h>
-#include <wctype.h>
+#include <uctype.h>
 
 // Count words
 
 int main() {
 	bool within_word;
-	wint_t c;
+	c32int_t c;
 	long nl, nw, nc;
 
 	setlocale(LC_ALL, "");
@@ -15,14 +15,14 @@ int main() {
 	within_word = false;
 	nl = nw = nc = 0;
 
-	while ((c = getwchar()) != WEOF) {
+	while ((c = getchar32()) != WEOF) {
 		nc++;
 
 		if (c == L'\n') {
 			nl++;
 		}
 
-		if (iswspace(c)) {
+		if (isc32space(c)) {
 			within_word = false;
 		} else if (!within_word) {
 			within_word = true;
@@ -30,6 +30,6 @@ int main() {
 		}
 	}
 
-	wprintf(L"%ld %ld %ld\n", nl, nw, nc);
+	printf("%ld %ld %ld\n", nl, nw, nc);
 	return 0;
 }

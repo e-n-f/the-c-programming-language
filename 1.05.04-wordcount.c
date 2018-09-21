@@ -1,4 +1,4 @@
-#include <wchar.h>
+#include <uchar.h>
 #include <locale.h>
 #include <stdbool.h>
 
@@ -6,7 +6,7 @@
 
 int main() {
 	bool within_word;
-	wint_t c;
+	c32int_t c;
 	long nl, nw, nc;
 
 	setlocale(LC_ALL, "");
@@ -14,14 +14,14 @@ int main() {
 	within_word = false;
 	nl = nw = nc = 0;
 
-	while ((c = getwchar()) != WEOF) {
+	while ((c = getchar32()) != WEOF) {
 		nc++;
 
-		if (c == L'\n') {
+		if (c == U'\n') {
 			nl++;
 		}
 
-		if (c == L' ' || c == L'\n' || c == L'\t') {
+		if (c == U' ' || c == U'\n' || c == U'\t') {
 			within_word = false;
 		} else if (!within_word) {
 			within_word = true;
@@ -29,6 +29,6 @@ int main() {
 		}
 	}
 
-	wprintf(L"%ld %ld %ld\n", nl, nw, nc);
+	printf("%ld %ld %ld\n", nl, nw, nc);
 	return 0;
 }

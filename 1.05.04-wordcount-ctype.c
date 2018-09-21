@@ -15,7 +15,7 @@ int main() {
 	within_word = false;
 	nl = nw = nc = 0;
 
-	while ((c = getchar32()) != WEOF) {
+	while ((c = getchar32()) != C32EOF) {
 		nc++;
 
 		if (c == L'\n') {

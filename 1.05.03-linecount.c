@@ -10,7 +10,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
 	nl = 0;
-	while ((c = getchar32()) != WEOF) {
+	while ((c = getchar32()) != C32EOF) {
 		if (c == U'\n') {
 			nl++;
 		}
